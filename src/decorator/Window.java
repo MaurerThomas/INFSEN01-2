@@ -1,5 +1,7 @@
 package decorator;
 
+import visitor.ComponentElement;
+
 import javax.swing.*;
 
 public interface Window {

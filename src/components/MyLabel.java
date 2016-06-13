@@ -1,17 +1,14 @@
 package components;
 
-
 import factory.Component;
 import visitor.ComponentElement;
 import visitor.ComponentVisitor;
 
 import javax.swing.*;
 
-public class MyButton implements Component, ComponentElement {
+public class MyLabel implements Component, ComponentElement {
 
-    // Logic
-
-    public MyButton(String title){
+    public MyLabel(String title) {
         drawComponent(title);
     }
 
@@ -22,6 +19,6 @@ public class MyButton implements Component, ComponentElement {
 
     @Override
     public void drawComponent(String title) {
-        new JButton(title);
+        new JLabel(title);
     }
 }

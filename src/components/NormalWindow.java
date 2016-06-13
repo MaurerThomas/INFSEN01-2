@@ -1,6 +1,7 @@
 package components;
 
 import decorator.Window;
+import visitor.ComponentElement;
 
 import javax.swing.*;
 
@@ -14,7 +15,6 @@ public class NormalWindow implements Window {
         this.mainPanel = new JPanel();
         this.jFrame.setDefaultCloseOperation(jFrame.DISPOSE_ON_CLOSE);
         this.jFrame.setVisible(true);
-
     }
 
     @Override
@@ -25,7 +25,6 @@ public class NormalWindow implements Window {
     @Override
     public void addPanel(String message) {
         JPanel panel = new JPanel();
-        panel.add(new JLabel(message));
         mainPanel.add(panel);
     }
 
