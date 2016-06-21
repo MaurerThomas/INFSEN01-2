@@ -3,10 +3,12 @@ package factory;
 
 import components.MyButton;
 import components.MyLabel;
-import visitor.ComponentElement;
+
+import java.awt.*;
 
 public class ComponentFactory {
-    public ComponentElement createComponent(String componentType) {
+
+    public Component createComponent(String componentType) {
         if ("button".equals(componentType)) {
             return new MyButton("button");
         } else if ("label".equals(componentType)) {

@@ -1,7 +1,6 @@
 package factory;
 
-import components.MyButton;
-
 public interface Component {
-    void drawComponent(String title);
+    java.awt.Component drawComponent(String title);
+
 }

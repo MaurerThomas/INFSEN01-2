@@ -1,8 +1,8 @@
 import components.NormalWindow;
 import decorator.OurWindow;
 import decorator.Window;
+import factory.Component;
 import factory.ComponentFactory;
-import visitor.ComponentElement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +13,14 @@ public class Main {
         Window window = new OurWindow(new NormalWindow());
         window.setTitle("test");
         ComponentFactory componentFactory = new ComponentFactory();
-        List<ComponentElement> componentElements = new ArrayList<ComponentElement>();
+        List<Component> componentElements = new ArrayList<Component>();
         componentElements.add(componentFactory.createComponent("button"));
         componentElements.add(componentFactory.createComponent("label"));
 
+        for(Component component : componentElements) {
+            window.addLabel(component.drawComponent("sdf"));
+
+        }
 
         // Iterator pattern to loop through components list and add them to the main panel.
 

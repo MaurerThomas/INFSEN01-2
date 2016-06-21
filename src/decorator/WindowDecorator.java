@@ -1,6 +1,7 @@
 package decorator;
 
 import components.NormalWindow;
+import factory.Component;
 
 import javax.swing.*;
 
@@ -23,6 +24,13 @@ public abstract class WindowDecorator implements Window {
         return normalWindow.getJFrame();
     }
 
+    public void addButton(java.awt.Component component) {
+        normalWindow.addButton(component);
+    }
+
+    public void addLabel(java.awt.Component component) {
+        normalWindow.addLabel(component);
+    }
     public NormalWindow getNormalWindow() {
         return normalWindow;
     }

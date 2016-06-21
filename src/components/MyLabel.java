@@ -2,7 +2,7 @@ package components;
 
 import factory.Component;
 import visitor.ComponentElement;
-import visitor.ComponentVisitor;
+import visitor.IComponentVisitor;
 
 import javax.swing.*;
 
@@ -13,12 +13,12 @@ public class MyLabel implements Component, ComponentElement {
     }
 
     @Override
-    public void accept(ComponentVisitor componentVisitor) {
-        componentVisitor.visit(this);
+    public void visit(IComponentVisitor IComponentVisitor) {
+        IComponentVisitor.onLabel(this);
     }
 
     @Override
-    public void drawComponent(String title) {
-        new JLabel(title);
+    public JLabel drawComponent(String title) {
+        return new JLabel(title);
     }
 }

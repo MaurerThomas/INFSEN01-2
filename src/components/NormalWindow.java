@@ -1,7 +1,7 @@
 package components;
 
 import decorator.Window;
-import visitor.ComponentElement;
+import factory.Component;
 
 import javax.swing.*;
 
@@ -13,7 +13,7 @@ public class NormalWindow implements Window {
         this.jFrame = new JFrame();
         this.jFrame.setSize(300,400);
         this.mainPanel = new JPanel();
-        this.jFrame.setDefaultCloseOperation(jFrame.DISPOSE_ON_CLOSE);
+        this.jFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         this.jFrame.setVisible(true);
     }
 
@@ -31,5 +31,15 @@ public class NormalWindow implements Window {
     @Override
     public JFrame getJFrame() {
         return jFrame;
+    }
+
+    @Override
+    public void addButton(java.awt.Component component) {
+        jFrame.add(component);
+    }
+
+    @Override
+    public void addLabel(java.awt.Component component) {
+        jFrame.add(component);
     }
 }
