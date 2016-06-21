@@ -1,7 +1,6 @@
 package decorator;
 
 import components.NormalWindow;
-import factory.Component;
 
 import javax.swing.*;
 

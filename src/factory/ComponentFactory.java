@@ -4,8 +4,6 @@ package factory;
 import components.MyButton;
 import components.MyLabel;
 
-import java.awt.*;
-
 public class ComponentFactory {
 
     public Component createComponent(String componentType) {

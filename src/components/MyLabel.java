@@ -6,15 +6,10 @@ import visitor.IComponentVisitor;
 
 import javax.swing.*;
 
-public class MyLabel implements Component, ComponentElement {
+public class MyLabel implements Component {
 
     public MyLabel(String title) {
         drawComponent(title);
-    }
-
-    @Override
-    public void visit(IComponentVisitor IComponentVisitor) {
-        IComponentVisitor.onLabel(this);
     }
 
     @Override

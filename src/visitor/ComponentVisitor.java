@@ -1,27 +1,24 @@
 package visitor;
 
-import components.MyButton;
-import components.MyLabel;
-
-import java.util.ArrayList;
-import java.util.List;
+import components.NormalWindow;
+import decorator.OurWindow;
+import factory.Component;
 
 public class ComponentVisitor implements IComponentVisitor {
+    private decorator.Window window = new OurWindow(new NormalWindow());
 
-    // Add buttons to a list?
-    // Use iterator pattern here?
-
-    public List<MyButton> buttons = new ArrayList<MyButton>();
-    public List<MyLabel> labels = new ArrayList<MyLabel>();
-
-    @Override
-    public void onButton(MyButton button) {
-        button.drawComponent("button");
+    public ComponentVisitor() {
+        window.setTitle("test");
     }
 
     @Override
-    public void onLabel(MyLabel label) {
-        labels.add(label);
-
+    public void onButton(Component button) {
+        window.addButton(button.drawComponent("button"));
     }
+
+    @Override
+    public void onLabel(Component label) {
+        window.addLabel(label.drawComponent("label"));
+    }
+
 }

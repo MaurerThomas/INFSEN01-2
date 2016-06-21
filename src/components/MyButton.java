@@ -7,15 +7,10 @@ import visitor.IComponentVisitor;
 
 import javax.swing.*;
 
-public class MyButton implements Component, ComponentElement {
+public class MyButton implements Component {
 
     public MyButton(String title){
         drawComponent(title);
-    }
-
-    @Override
-    public void visit(IComponentVisitor IComponentVisitor) {
-        IComponentVisitor.onButton(this);
     }
 
     @Override

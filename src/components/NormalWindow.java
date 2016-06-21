@@ -1,9 +1,9 @@
 package components;
 
 import decorator.Window;
-import factory.Component;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class NormalWindow implements Window {
     private final JFrame jFrame;
@@ -11,7 +11,8 @@ public class NormalWindow implements Window {
 
     public NormalWindow() {
         this.jFrame = new JFrame();
-        this.jFrame.setSize(300,400);
+        this.jFrame.setSize(400,400);
+        this.jFrame.setLayout(new GridLayout(3, 1));
         this.mainPanel = new JPanel();
         this.jFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         this.jFrame.setVisible(true);

@@ -1,5 +1,5 @@
 package visitor;
 
-public interface ComponentElement {
+public interface ComponentElement  {
  void visit(IComponentVisitor visitor);
 }

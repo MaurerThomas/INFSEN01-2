@@ -1,12 +1,12 @@
 package visitor;
 
-import components.MyButton;
-import components.MyLabel;
+import factory.Component;
 
 
 public interface IComponentVisitor {
 
-    void onButton (MyButton button);
+    void onButton (Component button);
 
-    void onLabel (MyLabel label);
+    void onLabel (Component label);
+
 }

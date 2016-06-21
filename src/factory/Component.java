@@ -1,6 +1,8 @@
 package factory;
 
-public interface Component {
-    java.awt.Component drawComponent(String title);
+import visitor.ComponentElement;
+import visitor.IComponentVisitor;
 
+public interface Component{
+    java.awt.Component drawComponent(String title);
 }

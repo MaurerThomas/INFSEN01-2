@@ -1,7 +1,5 @@
 package decorator;
 
-import factory.Component;
-
 import javax.swing.*;
 
 public interface Window {

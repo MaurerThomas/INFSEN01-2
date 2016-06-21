@@ -1,8 +1,9 @@
-import components.NormalWindow;
-import decorator.OurWindow;
-import decorator.Window;
-import factory.Component;
+import adapter.MyButtonAdapter;
+import adapter.MyLabelAdapter;
 import factory.ComponentFactory;
+import iterator.Some;
+import visitor.ComponentElement;
+import visitor.ComponentVisitor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,19 +11,20 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        Window window = new OurWindow(new NormalWindow());
-        window.setTitle("test");
+        ComponentVisitor componentVisitor = new ComponentVisitor();
         ComponentFactory componentFactory = new ComponentFactory();
-        List<Component> componentElements = new ArrayList<Component>();
-        componentElements.add(componentFactory.createComponent("button"));
-        componentElements.add(componentFactory.createComponent("label"));
+        List<ComponentElement> components = new ArrayList<ComponentElement>();
+        ComponentElement label = new MyLabelAdapter(componentFactory.createComponent("label"));
+        ComponentElement button = new MyButtonAdapter(componentFactory.createComponent("button"));
 
-        for(Component component : componentElements) {
-            window.addLabel(component.drawComponent("sdf"));
+        components.add(button);
+        components.add(label);
 
-        }
+        iterator.Option<Integer> component = new Some<>(components.size());
+        component.visit(() -> {
+            throw new IllegalArgumentException("Expecting a value...");
+        }, i -> i + 1);
 
-        // Iterator pattern to loop through components list and add them to the main panel.
 
     }
 }
