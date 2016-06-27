@@ -1,14 +1,16 @@
 import adapter.MyButtonAdapter;
 import adapter.MyLabelAdapter;
+import factory.Component;
 import factory.ComponentFactory;
-import iterator.Some;
+import iterator.*;
 import visitor.ComponentElement;
 import visitor.ComponentVisitor;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
-public class Main {
+public class Main{
 
     public static void main(String[] args) {
         ComponentVisitor componentVisitor = new ComponentVisitor();
@@ -20,11 +22,14 @@ public class Main {
         components.add(button);
         components.add(label);
 
-        iterator.Option<Integer> component = new Some<>(components.size());
-        component.visit(() -> {
-            throw new IllegalArgumentException("Expecting a value...");
-        }, i -> i + 1);
+        ComponentIterator<ComponentElement> iterator = new ComponentIterator(components);
+        Option<ComponentElement> value;
 
+         while((value = iterator.getNext()).isSome()) {
+            value.visit(() -> {
+                throw new IllegalArgumentException("Expecting a value...");
+            }, i -> {i.visit(componentVisitor); return null;});
+        }
 
     }
 }

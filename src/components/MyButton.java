@@ -2,10 +2,8 @@ package components;
 
 
 import factory.Component;
-import visitor.ComponentElement;
-import visitor.IComponentVisitor;
-
 import javax.swing.*;
+
 
 public class MyButton implements Component {
 
@@ -15,6 +13,12 @@ public class MyButton implements Component {
 
     @Override
     public JButton drawComponent(String title) {
-        return new JButton(title);
+
+        JButton button = new JButton(title);
+        button.addActionListener(e -> {
+            // En nu?
+
+        });
+        return button;
     }
 }

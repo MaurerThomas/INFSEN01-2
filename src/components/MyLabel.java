@@ -16,4 +16,5 @@ public class MyLabel implements Component {
     public JLabel drawComponent(String title) {
         return new JLabel(title);
     }
+
 }
